@@ -50,6 +50,13 @@ const strings = [
 ]
 
 const jedi = strings
-	.filter((string) => string.includes('Jedi'));
-	
-test("Problem 2", jedi)
+	.map(str => {
+		const obj = JSON.parse(`{${str}}`)
+		if (obj.occupation === 'Jedi') {
+			return obj
+		}
+	})
+	.filter(Boolean)
+
+
+test("Problem 2", jedi);
